@@ -252,6 +252,7 @@ header{
         <button class="pill" data-cat="historic">Historisch</button>
         <button class="pill" data-cat="landmark">Landmark</button>
         <button class="pill" data-cat="crypto">Geheimdienst</button>
+        <button class="pill" data-cat="quantum">Quanten</button>
       </div>
     </div>
     <div class="place-list" id="plist"></div>
@@ -263,6 +264,7 @@ header{
       <div class="leg-row"><div class="ldot" style="background:#1a4a72"></div>Historisch</div>
       <div class="leg-row"><div class="ldot" style="background:#14665a"></div>Landmark</div>
       <div class="leg-row"><div class="ldot" style="background:#4a2d7a"></div>Geheimdienst</div>
+      <div class="leg-row"><div class="ldot" style="background:#0e6b6b"></div>Quantencomputing</div>
     </div>
     <div id="detail">
       <div class="d-bar" id="dbar"></div>
@@ -286,6 +288,7 @@ const CAT={
   historic:{color:'#1a4a72',label:'Historisch'},
   landmark:{color:'#14665a',label:'Landmark'},
   crypto:{color:'#4a2d7a',label:'Geheimdienst'}
+  quantum:{color:'#0e6b6b',label:'Quantencomputing'}
 };
 
 const PLACES=[
@@ -299,6 +302,16 @@ const PLACES=[
     desc:'Universitätsstraße 38 – alle Maschinen laufen. Vom Magnettrommelrechner LGP-30 bis zur DEC-PDP-Serie führt Klemens Krause betriebsfähige Exponate vor. 400 Jahre Rechengeschichte auf 97 m².',
     link:'https://www.computermuseum-stuttgart.de'
   },
+  {
+  name:'IBM Quantum Data Center Ehningen',
+  city:'Ehningen, Deutschland',
+  lat:48.6547,lng:8.9419,
+  cat:'quantum',
+  year:'eröffnet 2024',
+  tags:['IBM Heron','erstes QDC außerhalb USA','Fraunhofer','Bundeskanzler-Eröffnung'],
+  desc:'IBM Technology Campus bei Stuttgart – das erste IBM Quantum Data Center außerhalb der USA. Seit Oktober 2024 läuft hier der IBM Heron-Prozessor. Bundeskanzler Scholz eröffnete persönlich. Nutzer in der EU können hierüber Quantencomputing-Workloads konform mit europäischen Datenschutzregeln ausführen.',
+  link:'https://www.ibm.com/de-de/quantum'
+},
   {
     name:'Heinz Nixdorf MuseumsForum',
     city:'Paderborn, DE',
