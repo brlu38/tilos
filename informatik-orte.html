@@ -27,7 +27,6 @@
 }
 html,body{height:100%;overflow:hidden;background:var(--paper)}
 body{display:flex;flex-direction:column;font-family:var(--sans);color:var(--ink)}
-
 /* ─── HEADER ─── */
 header{
   background:var(--ink);
@@ -55,10 +54,8 @@ header{
   border-left:1px solid #3a3028;
   padding-left:16px;
 }
-
 /* ─── LAYOUT ─── */
 .main{display:flex;flex:1;overflow:hidden}
-
 /* ─── SIDEBAR ─── */
 #sidebar{
   width:310px;
@@ -99,11 +96,9 @@ header{
 }
 .pill:hover{border-color:var(--ink)}
 .pill.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-
 .place-list{overflow-y:auto;flex:1;padding:2px 0}
 .place-list::-webkit-scrollbar{width:3px}
 .place-list::-webkit-scrollbar-thumb{background:var(--rule)}
-
 .pitem{
   padding:11px 18px 11px 16px;
   border-bottom:1px solid rgba(196,184,154,0.4);
@@ -137,7 +132,6 @@ header{
   border:1px solid;
   border-radius:1px;
 }
-
 /* ─── MAP ─── */
 #map{flex:1;position:relative}
 .leaflet-tile{filter:sepia(0.45) saturate(0.75) brightness(1.02) hue-rotate(8deg)}
@@ -150,7 +144,6 @@ header{
 .leaflet-popup-tip-container{display:none}
 .leaflet-popup-content{margin:9px 13px!important;font-size:13px;line-height:1.5}
 .leaflet-popup-close-button{color:var(--rule2)!important;font-size:16px!important;top:5px!important;right:8px!important}
-
 /* ─── LEGEND ─── */
 #legend{
   position:absolute;
@@ -165,7 +158,6 @@ header{
 .leg-row{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:0.56rem;color:var(--ink);margin-bottom:5px;letter-spacing:0.05em}
 .leg-row:last-child{margin-bottom:0}
 .ldot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink)}
-
 /* ─── DETAIL PANEL ─── */
 #detail{
   position:absolute;
