@@ -276,7 +276,7 @@ header{
         <hr class="d-hr"/>
         <div class="d-desc" id="ddesc"></div>
         <div class="d-chips" id="dchips"></div>
-        <a href="#" id="dlink" class="d-link" target="_blank">→ Mehr erfahren</a>
+        <div id="dlink" class="d-link-text"></div>
       </div>
     </div>
   </div>
@@ -436,10 +436,11 @@ function mkIcon(p){
 
 PLACES.forEach((p,i)=>{
   const m=L.marker([p.lat,p.lng],{icon:mkIcon(p)}).addTo(map);
-  m.bindPopup(`<span style="font-family:'Lora',serif;font-style:italic;font-size:13px">${p.name}</span><br><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9e8f72">${p.city}</span>`);
-  m.on('click',()=>{activeIdx=i;showDetail(p);renderList()});
-  markers.push(m);
-});
+  m.bindPopup(`
+  <b>${p.name}</b><br>
+  ${p.city}<br>
+  🔗 <a href="${p.link}" target="_blank">Website</a>
+`);
 
 function showDetail(p){
   const c=CAT[p.cat].color;
