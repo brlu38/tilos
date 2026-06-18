@@ -60,17 +60,19 @@ header{
 }
 .h-impressum{
   font-family:var(--sans);
-  font-size:0.78rem;
+  font-size:0.85rem;
   font-weight:500;
-  color:var(--text);
+  color:var(--ink);
   text-decoration:none;
-  background:var(--panel2);
-  border:1px solid var(--border);
-  padding:8px 16px;
-  border-radius:20px;
-  transition:all .15s;
+  background:#fff;
+  border:1.5px solid #b0b0b0;
+  padding:9px 20px;
+  border-radius:30px;
+  transition:border-color .15s;
+  letter-spacing:0.01em;
+  white-space:nowrap;
 }
-.h-impressum:hover{background:var(--border)}
+.h-impressum:hover{border-color:var(--ink)}
 
 /* ─── LAYOUT ─── */
 .main{display:flex;flex:1;overflow:hidden}
@@ -271,7 +273,7 @@ header{
 <div class="main">
   <div id="sidebar">
     <div class="sb-top">
-      <div class="sb-label"></div>
+      <div class="sb-label">// Kategorie filtern</div>
       <div class="pills" id="pills">
         <button class="pill on" data-cat="all">Alle</button>
         <button class="pill" data-cat="museum">Museum</button>
@@ -303,7 +305,6 @@ header{
         <hr class="d-hr"/>
         <div class="d-desc" id="ddesc"></div>
         <div class="d-chips" id="dchips"></div>
-        <a href="#" id="dlink" class="d-link" target="_blank">Zur Website →</a>
       </div>
     </div>
   </div>
@@ -326,18 +327,18 @@ const PLACES=[
     cat:'museum',
     year:'gegr. 1997',
     tags:['Computermuseum','Klemens Krause','LGP 30','Stuttgart'],
-    desc:'Das Computermuseum zeigt historische, teils funktionsfähige Computer und Rechenmaschinen aus über 400 Jahren Informatikgeschichte. Besonders ist, dass viele Geräte live vorgeführt werden können – von frühen Rechenmaschinen bis zu klassischen Minicomputern.',
+    desc:'Das Museum erzählt die faszinierende 400-jährige Entwicklung der Computer von Wilhelm Schickards Rechenmaschine bis zu den Mikroprozessoren der 1970er Jahre.',
     link:'https://www.f05.uni-stuttgart.de/informatik/fachbereich/computermuseum/'
   },
   {
-    name:'IBM Quantencomputer',
+    name:'IBM Quantum Data Center Ehningen',
     city:'Ehningen, DE',
     lat:48.6547,lng:8.9419,
     cat:'quantum',
     year:'eröffnet 2024',
-    tags:['IBM','Quantencomputing','Fraunhofer','Ehningen'],
-    desc:'Nahe Stuttgart steht der erste Quantencomputer Deutschlands. Gemeinsam mit mehreren Instituten der Fraunhofer-Gesellschaft hat IBM dort sein Q System One aufgebaut.',
-    link:'https://quantum.cloud.ibm.com/'
+    tags:['IBM','erstes QDC außerhalb USA','Fraunhofer','Ehningen'],
+    desc:'Das erste IBM Quantum-Rechenzentrum in Europa wurde am 1. Oktober 2024 in Ehningen, Deutschland, eröffnet.',
+    link:'https://www.ibm.com/de-de/quantum'
   },
   {
     name:'Heinz Nixdorf MuseumsForum',
@@ -475,7 +476,6 @@ function showDetail(p){
   document.getElementById('dwhere').textContent=p.city;
   document.getElementById('ddesc').textContent=p.desc;
   document.getElementById('dchips').innerHTML=p.tags.map(t=>`<span class="d-chip">${t}</span>`).join('');
-  document.getElementById('dlink').href=p.link;
   document.getElementById('detail').style.display='block';
 }
 
