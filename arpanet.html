@@ -16,44 +16,43 @@
       --text-dark: #2c3e50;
       --text-light: #7f8c8d;
     }
-    
+   
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+   
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text-dark);
       line-height: 1.6;
       background: white;
     }
-    
+   
     header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
       padding: 4rem 2rem;
       text-align: center;
     }
-    
+   
     header h1 {
       font-size: 2.8rem;
       font-family: 'Lora', serif;
       margin-bottom: 1rem;
     }
-
     header p {
       font-size: 1.2rem;
       opacity: 0.9;
     }
-    
+   
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
-    
+   
     .hero-section {
       background: var(--bg-light);
       padding: 2.5rem;
@@ -61,7 +60,7 @@
       margin-bottom: 3rem;
       border-left: 5px solid var(--primary);
     }
-    
+   
     .hero-section h3 {
       font-size: 1.1rem;
       text-transform: uppercase;
@@ -69,20 +68,19 @@
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
-
     .quote {
       font-family: 'Fira Code', monospace;
       background: #ededed;
-      padding: 1rem;
+      padding: 1.2rem;
       border-radius: 4px;
-      margin: 1rem 0;
-      font-size: 1.2rem;
+      margin: 1.2rem 0;
+      font-size: 1.35rem;
       font-weight: bold;
       color: #c0392b;
       text-align: center;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
     }
-    
+   
     h2 {
       font-size: 1.8rem;
       font-family: 'Lora', serif;
@@ -91,37 +89,34 @@
       border-bottom: 3px solid var(--accent);
       padding-bottom: 0.5rem;
     }
-    
+   
     p {
       margin-bottom: 1.2rem;
       line-height: 1.8;
     }
-    
+   
     .main-image {
       text-align: center;
       margin: 2.5rem 0;
     }
-
     .main-image img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .main-image figcaption {
       font-size: 0.9rem;
       color: var(--text-light);
       margin-top: 0.75rem;
     }
-
     .highlights {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.5rem;
       margin: 2rem 0;
     }
-    
+   
     .highlight-card {
       background: var(--bg-light);
       padding: 1.5rem;
@@ -129,46 +124,43 @@
       border-top: 4px solid var(--accent);
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    
+   
     .highlight-card h4 {
       color: var(--primary);
       margin-bottom: 0.5rem;
       font-size: 1.1rem;
     }
-    
+   
     .person-card {
       background: var(--bg-light);
       padding: 1.5rem;
       border-radius: 8px;
       margin-bottom: 1.5rem;
     }
-    
+   
     .person-card strong {
       color: var(--primary);
       font-size: 1.1rem;
     }
-    
+   
     .person-card em {
       color: var(--accent);
       font-style: normal;
       font-weight: 500;
       margin-left: 0.5rem;
     }
-
     .person-card p:last-child {
       margin-bottom: 0;
       margin-top: 0.5rem;
     }
-    
+   
     ul {
       margin-left: 2rem;
       margin-bottom: 1.5rem;
     }
-
     ul li {
       margin-bottom: 0.5rem;
     }
-
     footer {
       background: var(--bg-light);
       padding: 2.5rem;
@@ -177,7 +169,7 @@
       margin-top: 4rem;
       border-top: 1px solid #eee;
     }
-    
+   
     footer a {
       color: var(--accent);
       text-decoration: none;
@@ -188,37 +180,36 @@
   </style>
 </head>
 <body>
-
   <header>
     <h1>🌐 Das erste Internetpaket</h1>
     <p>ARPANET 1969: Die Geburtsstunde des globalen Datennetzwerks</p>
   </header>
-  
+ 
   <div class="container">
-    
+   
     <div class="hero-section">
       <h3>29. Oktober 1969, 22:30 Uhr – UCLA, Los Angeles</h3>
       <p>
-        Ein junger Programmierer namens Charley Kline sitzt vor einem Terminal in Raum 3420 der Boelter Hall und versucht, das erste Datenpaket zu übertragen. Geplant war das Wort "LOGIN" – doch das System stürzt nach nur zwei Buchstaben ab:
+        Der junge Programmierer Charley Kline sitzt in Raum 3420 der Boelter Hall vor einem Terminal und versucht, das erste Datenpaket zu übertragen. Geplant war das Wort „LOGIN“ – doch das System am Stanford Research Institute stürzt nach nur zwei Buchstaben ab:
       </p>
       <div class="quote">
         "LO"
       </div>
       <p>
-        Obwohl es ein technischer Fehler war, ging die Nachricht als perfekte, unbeabsichtigte Metapher für <em>„Lo and behold!“</em> (Schau und staune!) in die Geschichte ein. Eine Stunde später klappte die Verbindung komplett.
+        Obwohl es ein technischer Fehler war, ging die Nachricht als perfekte, unbeabsichtigte Metapher für <em>„Lo and behold!“</em> (Schau und staune!) in die Geschichte ein. Etwa eine Stunde später gelang die vollständige Verbindung.
       </p>
     </div>
 
     <figure class="main-image">
-      <img src="diagram-arpanet-1974.png" alt="ARPANET Diagramm von 1974">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Arpanet_1974.png/800px-Arpanet_1974.png" alt="ARPANET Diagramm von 1974">
       <figcaption>
-        Historische Strukturkarte des ARPANET aus dem Jahr 1974 mit den wachsenden Knotenpunkten.
+        Historische Strukturkarte des ARPANET aus dem Jahr 1974 mit den wachsenden Knotenpunkten (Quelle: Wikimedia Commons).
       </figcaption>
     </figure>
-    
+   
     <h2>Was war ARPANET?</h2>
-    <p>Das ARPANET war ein vom US-Verteidigungsministerium in den späten 1960er Jahren entwickeltes Computernetzwerk und gilt als Vorläufer des heutigen Internets. Es verband Forschungseinrichtungen miteinander, um den Austausch von Informationen zu ermöglichen und die Zuverlässigkeit der Kommunikation zu erhöhen. Das ARPANET legte die technischen Grundlagen für die globale Vernetzung und die Entwicklung des Internets.</p>
-    
+    <p>Das ARPANET war ein vom US-Verteidigungsministerium (über die Advanced Research Projects Agency) in den späten 1960er Jahren entwickeltes Computernetzwerk. Es gilt als direkter Vorläufer des heutigen Internets. Ziel war der zuverlässige Informationsaustausch zwischen Forschungseinrichtungen – unabhängig von zentralen Schaltstellen. Das ARPANET führte erstmals praktisch die Konzepte der <strong>Paketvermittlung</strong> und eines dezentralen, robusten Netzwerks ein.</p>
+   
     <h2>Bedeutung für die Informatik</h2>
     <div class="highlights">
       <div class="highlight-card">
@@ -227,63 +218,62 @@
       </div>
       <div class="highlight-card">
         <h4>Paketvermittlung</h4>
-        <p>Daten wurden erstmals in Pakete zerlegt und unabhängig verschickt (Packet Switching).</p>
+        <p>Daten wurden in Pakete zerlegt und unabhängig voneinander geroutet (Packet Switching).</p>
       </div>
       <div class="highlight-card">
         <h4>Robustes Design</h4>
-        <p>Keine zentrale Schaltstelle. Fällt ein Knoten aus, sucht sich das Paket einen anderen Weg.</p>
+        <p>Keine zentrale Schaltstelle – fällt ein Knoten aus, sucht sich das Paket einen alternativen Weg.</p>
       </div>
       <div class="highlight-card">
         <h4>Skalierbarkeit</h4>
-        <p>Das zugrundeliegende Konzept wuchs von anfangs vier Knoten auf das heutige weltweite Internet.</p>
+        <p>Von anfangs vier Knoten wuchs das Konzept zum weltweiten Internet.</p>
       </div>
     </div>
 
-    <h2>Die vier Gründungsknoten (Nodes)</h2>
+    <h2>Die vier Gründungsknoten (1969)</h2>
     <p>
-      Bis Ende 1969 wurden die ersten vier Institutionen – oft auch als die Gründerväter des physischen Internets bezeichnet – erfolgreich miteinander zusammengeschaltet:
+      Bis Ende 1969 wurden die ersten vier Institutionen erfolgreich vernetzt:
     </p>
     <ul>
-      <li><strong>UCLA (Node 1):</strong> Das <em>Network Measurement Center</em> analysierte und überwachte das entstehende Netzwerk.</li>
-      <li><strong>Stanford Research Institute (Node 2):</strong> Das <em>Augmentation Research Center</em> hostete das erste Netzwerk-Verzeichnis.</li>
-      <li><strong>UC Santa Barbara (Node 3):</strong> Steuerte wertvolle Expertise im Bereich der interaktiven Computergrafik bei.</li>
-      <li><strong>University of Utah (Node 4):</strong> Brachte bahnbrechende Forschung zu computergestützten 3D-Algorithmen ins Netz ein.</li>
+      <li><strong>UCLA (Node 1):</strong> Network Measurement Center – analysierte und überwachte das Netzwerk.</li>
+      <li><strong>Stanford Research Institute (Node 2):</strong> Augmentation Research Center – hostete das erste Netzwerk-Verzeichnis.</li>
+      <li><strong>UC Santa Barbara (Node 3):</strong> Brachte Expertise in interaktiver Computergrafik ein.</li>
+      <li><strong>University of Utah (Node 4):</strong> Forschung zu computergestützten 3D-Algorithmen.</li>
     </ul>
-    
+   
     <h2>Prägende Köpfe</h2>
     <div class="person-card">
       <p><strong>Charley Kline</strong> <em>(geb. 1948)</em></p>
-      <p>Der junge Programmierer und Student an der UCLA, der am 29. Oktober 1969 die historische erste Tastatureingabe tippte und damit die allererste Datenübertragung der Internetgeschichte auslöste.</p>
+      <p>Student und Programmierer an der UCLA, der am 29. Oktober 1969 die erste Tastatureingabe machte und damit die erste Datenübertragung der Internetgeschichte auslöste.</p>
     </div>
     <div class="person-card">
       <p><strong>Leonard Kleinrock</strong> <em>(geb. 1934)</em></p>
-      <p>US-amerikanischer Informatiker und Professor an der UCLA. Er entwickelte bereits in seiner mathematischen Dissertation die theoretischen Grundlagen der Paketvermittlung, auf denen das ARPANET physisch aufbaute.</p>
+      <p>Professor an der UCLA. Entwickelte in seiner Dissertation die theoretischen Grundlagen der Paketvermittlung, auf denen das ARPANET aufbaute.</p>
     </div>
     <div class="person-card">
       <p><strong>Robert Taylor</strong> <em>(1932 – 2017)</em></p>
-      <p>Direktor des Information Processing Techniques Office (IPTO). Genervt davon, drei verschiedene Terminals im Büro zu brauchen, um mit drei Universitäten zu sprechen, stieß er das ARPANET-Projekt an und sicherte die nötigen Gelder.</p>
+      <p>Direktor des IPTO bei ARPA. Genervt von mehreren separaten Terminals, initiierte er das ARPANET-Projekt und sicherte die Finanzierung.</p>
     </div>
-    
+   
     <h2>Zeitleiste der Urgeschichte des Internets</h2>
     <ul>
-      <li><strong>1966:</strong> Der US-Informatiker Lawrence G. Roberts beginnt mit der Planung des ARPANET, eines Computernetzwerks zur Verbindung von Forschungseinrichtungen.</li>
-      <li><strong>1967:</strong> Auf einer Fachkonferenz wird das Konzept des ARPANET erstmals öffentlich vorgestellt. Die Grundlagen der Paketvermittlung (Packet Switching) werden für das Netzwerk festgelegt.</li>
-      <li><strong>1969:</strong> Das ARPANET geht mit den ersten vier verbundenen Rechnern in Betrieb. Die erste Nachricht wird zwischen der University of California, Los Angeles und dem Stanford Research Institute übertragen.</li>
-      <li><strong>1971:</strong> Im ARPANET wird die erste E-Mail versendet. Entwickelt wurde sie von Ray Tomlinson, der dabei auch das „@“-Zeichen zur Adressierung einführte.</li>
-      <li><strong>1983:</strong> Das ARPANET stellt auf das Kommunikationsprotokoll TCP/IP um. Dieser Schritt gilt als Geburtsstunde des modernen Internets, da nun verschiedene Netzwerke miteinander verbunden werden können.</li>
+      <li><strong>1966/67:</strong> Lawrence Roberts und Robert Taylor planen das ARPANET. Das Konzept der Paketvermittlung wird festgelegt.</li>
+      <li><strong>1969:</strong> Das ARPANET geht mit den ersten vier Rechnern in Betrieb. Erste Nachricht „LO“ zwischen UCLA und SRI.</li>
+      <li><strong>1970/71:</strong> Network Control Protocol (NCP). Erste E-Mail von Ray Tomlinson (mit Einführung des @-Zeichens).</li>
+      <li><strong>1983:</strong> Umstellung auf TCP/IP – dies gilt als eigentliche Geburtsstunde des modernen Internets, da unterschiedliche Netzwerke verbunden werden konnten.</li>
     </ul>
-    
+   
     <h2>Quellen & Weiterführendes</h2>
     <ul>
       <li><a href="https://computerhistory.org" target="_blank">Computer History Museum</a></li>
       <li><a href="https://www.internethalloffame.org" target="_blank">Internet Hall of Fame</a></li>
-      <li><a href="https://www.studysmarter.de/studium/germanistik/medienwissenschaft/arpanet" target="_blank">StudySmarter: Das ARPANET im Medienkontext</a></li>
-      <li><a href="https://de.wikipedia.org/wiki/ARPANET" target="_blank">Wikipedia: ARPANET</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/ARPANET" target="_blank">Wikipedia: ARPANET (engl.)</a></li>
+      <li><a href="https://de.wikipedia.org/wiki/ARPANET" target="_blank">Wikipedia: ARPANET (deutsch)</a></li>
+      <li><a href="https://www.historyofinformation.com/detail.php?entryid=1108" target="_blank">History of Information: First ARPANET Message</a></li>
     </ul>
-
-  </div> <footer>
-    <p>Erstellt für das Projekt "Orte der Informatik" | Datenstand: 2026</p>
+  </div> 
+  <footer>
+    <p>Erstellt für das Projekt "Orte der Informatik" | Überarbeitet 2026</p>
   </footer>
-
 </body>
 </html>
