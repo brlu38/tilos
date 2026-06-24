@@ -1,534 +1,158 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Orte der Informatik</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --ink:#1c2230;
-  --text:#2a3142;
-  --muted:#8a93a3;
-  --bg:#ffffff;
-  --panel:#ffffff;
-  --panel2:#f6f7f9;
-  --border:#e7e9ed;
-  --accent:#2d6cdf;
-  --accent-soft:#e8f0fc;
-  --red:#c2540f;
-  --blue:#2c4f8c;
-  --teal:#1f7a5c;
-  --violet:#6b3fa0;
-  --quantum:#0f8a82;
-  --serif:'Lora',Georgia,serif;
-  --mono:'JetBrains Mono',monospace;
-  --sans:'Inter',system-ui,sans-serif;
-  --r:14px;
-}
-html,body{height:100%;overflow:hidden;background:var(--bg)}
-body{display:flex;flex-direction:column;font-family:var(--sans);color:var(--text)}
- 
-/* ─── HEADER ─── */
-header{
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-  padding:0 28px;
-  height:64px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-  flex-shrink:0;
-}
-.h-title{
-  font-family:var(--serif);
-  font-size:1.3rem;
-  color:var(--ink);
-  letter-spacing:0.01em;
-  flex:1;
-}
-.h-title b{font-weight:700}
-.h-title i{font-style:italic;color:var(--muted);font-weight:400}
-.h-tally{
-  font-family:var(--mono);
-  font-size:0.7rem;
-  color:var(--muted);
-  letter-spacing:0.04em;
-}
-.h-impressum{
-  font-family:var(--sans);
-  font-size:0.85rem;
-  font-weight:500;
-  color:var(--ink);
-  text-decoration:none;
-  background:#fff;
-  border:1.5px solid #b0b0b0;
-  padding:9px 20px;
-  border-radius:30px;
-  transition:border-color .15s;
-  letter-spacing:0.01em;
-  white-space:nowrap;
-}
-.h-impressum:hover{border-color:var(--ink)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orte der Informatik – Startseite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a2b4f;
+      --secondary: #2d4a7f;
+      --accent: #4a7dba;
+      --bg-light: #f8f9fa;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      font-family: 'Lora', serif;
+      margin-bottom: 1rem;
+    }
 
-/* ─── LAYOUT ─── */
-.main{display:flex;flex:1;overflow:hidden}
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .container {
+      max-width: 650px;
+      width: 100%;
+      margin: auto;
+      padding: 3rem 2rem;
+    }
 
-/* ─── SIDEBAR ─── */
-#sidebar{
-  width:330px;
-  flex-shrink:0;
-  background:var(--bg);
-  border-right:1px solid var(--border);
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-.sb-top{
-  padding:18px 20px 16px;
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
-}
-.sb-label{
-  font-family:var(--mono);
-  font-size:0.62rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:11px;
-  font-weight:500;
-}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{
-  padding:8px 16px;
-  border:1px solid var(--border);
-  background:var(--panel2);
-  font-family:var(--sans);
-  font-size:0.78rem;
-  font-weight:500;
-  color:var(--text);
-  cursor:pointer;
-  transition:all .15s;
-  border-radius:20px;
-}
-.pill:hover{border-color:var(--muted)}
-.pill.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .intro-text {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .link-card {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
 
-.place-list{overflow-y:auto;flex:1;padding:6px 0}
-.place-list::-webkit-scrollbar{width:4px}
-.place-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-
-.pitem{
-  padding:14px 20px 14px 17px;
-  border-bottom:1px solid var(--border);
-  cursor:pointer;
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  transition:background .12s;
-  border-left:3px solid transparent;
-}
-.pitem:hover{background:var(--panel2)}
-.pitem.on{background:var(--panel2);border-left-color:var(--accent)}
-.pidx{
-  font-family:var(--mono);
-  font-size:0.65rem;
-  color:var(--muted);
-  flex-shrink:0;
-  margin-top:4px;
-  min-width:20px;
-}
-.pname{font-size:0.92rem;font-weight:600;line-height:1.3;color:var(--ink);margin-bottom:3px;font-family:var(--serif)}
-.pcity{font-size:0.74rem;color:var(--muted);margin-bottom:6px}
-.ptag{
-  display:inline-block;
-  padding:3px 10px;
-  font-family:var(--sans);
-  font-size:0.65rem;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:0.03em;
-  border-radius:10px;
-}
-
-/* ─── MAP ─── */
-#map{flex:1;position:relative;background:#f6f7f9}
-.leaflet-container{background:#f6f7f9!important;font-family:var(--sans)}
-.leaflet-control-zoom{border:1px solid var(--border)!important;border-radius:10px!important;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
-.leaflet-control-zoom a{background:var(--bg)!important;color:var(--ink)!important;border-color:var(--border)!important;font-size:16px!important;font-weight:400!important}
-.leaflet-control-zoom a:hover{background:var(--panel2)!important}
-.leaflet-control-attribution{background:rgba(255,255,255,.85)!important;color:var(--muted)!important;font-size:10px!important;border-radius:6px 0 0 0!important}
-.leaflet-control-attribution a{color:var(--muted)!important}
-.leaflet-popup-content-wrapper{background:var(--bg);border:1px solid var(--border);border-radius:12px!important;color:var(--text);font-family:var(--sans);box-shadow:0 8px 24px rgba(20,30,50,.14)!important}
-.leaflet-popup-tip{background:var(--bg)!important;box-shadow:none!important}
-.leaflet-popup-content{margin:12px 16px!important;font-size:13px;line-height:1.5}
-.leaflet-popup-close-button{color:var(--muted)!important;font-size:18px!important;top:8px!important;right:10px!important}
-
-/* ─── LEGEND ─── */
-#legend{
-  position:absolute;
-  top:18px;right:18px;
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:var(--r);
-  padding:14px 18px;
-  z-index:999;
-  box-shadow:0 8px 24px rgba(20,30,50,.1);
-}
-.leg-h{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:500}
-.leg-row{display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--text);margin-bottom:8px;font-weight:500}
-.leg-row:last-child{margin-bottom:0}
-.ldot{width:13px;height:13px;border-radius:50%;flex-shrink:0;position:relative}
-.ldot::after{content:'';position:absolute;top:3px;left:3px;width:5px;height:5px;border-radius:50%;background:#fff}
-
-/* ─── DETAIL PANEL ─── */
-#detail{
-  position:absolute;
-  bottom:20px;left:20px;
-  width:330px;
-  background:var(--bg);
-  border:1px solid var(--border);
-  border-radius:var(--r);
-  z-index:999;
-  display:none;
-  box-shadow:0 12px 32px rgba(20,30,50,.16);
-  overflow:hidden;
-}
-.d-inner{padding:18px 20px 20px}
-.d-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
-.d-eyebrow{
-  font-family:var(--mono);
-  font-size:0.62rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  font-weight:600;
-}
-.d-name{
-  font-family:var(--serif);
-  font-size:1.35rem;
-  font-weight:700;
-  line-height:1.25;
-  color:var(--ink);
-  margin-bottom:4px;
-  margin-top:6px;
-}
-.d-where{
-  font-size:0.82rem;
-  color:var(--muted);
-  margin-bottom:14px;
-}
-.d-hr{border:none;border-top:1px solid var(--border);margin:14px 0}
-.d-desc{font-size:0.85rem;line-height:1.65;color:var(--text);margin-bottom:14px}
-.d-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.d-chip{
-  padding:4px 11px;
-  background:var(--panel2);
-  border:1px solid var(--border);
-  font-size:0.7rem;
-  font-weight:500;
-  color:var(--text);
-  border-radius:12px;
-}
-.d-link{
-  display:block;
-  padding:11px 16px;
-  background:var(--accent);
-  color:#fff;
-  font-family:var(--sans);
-  font-size:0.85rem;
-  font-weight:600;
-  text-decoration:none;
-  text-align:center;
-  border-radius:10px;
-  transition:opacity .15s;
-}
-.d-link:hover{opacity:.88}
-.d-x{
-  width:26px;height:26px;
-  background:var(--panel2);
-  border:none;
-  border-radius:50%;
-  color:var(--muted);
-  cursor:pointer;
-  font-size:14px;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.d-x:hover{background:var(--border);color:var(--ink)}
-
-/* mini popup link */
-.pop-link{display:flex;align-items:center;gap:5px;color:var(--accent);text-decoration:none;font-size:12.5px;font-weight:600;margin-top:6px}
-.pop-link:hover{text-decoration:underline}
-</style>
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(26, 43, 79, 0.1);
+      border-left-color: var(--primary);
+    }
+    
+    .icon {
+      font-size: 2.5rem;
+      margin-right: 1.5rem;
+    }
+    
+    .content h2 {
+      font-size: 1.3rem;
+      font-family: 'Lora', serif;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .content p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    
+    footer {
+      background: #ededed;
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-light);
+      margin-top: auto;
+      border-top: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div class="h-title"><b>Orte der Informatik</b> &nbsp;—&nbsp; <i>eine kartierte Geschichte</i></div>
-  <div class="h-tally" id="tally">12 Orte · 5 Länder</div>
-  <a href="https://die-brauns.org/impressum.html" class="h-impressum">Impressum</a>
-</header>
-<div class="main">
-  <div id="sidebar">
-    <div class="sb-top">
-      <div class="sb-label">Kategorie filtern</div>
-      <div class="pills" id="pills">
-        <button class="pill on" data-cat="all">Alle</button>
-        <button class="pill" data-cat="museum">Museum</button>
-        <button class="pill" data-cat="historic">Historisch</button>
-        <button class="pill" data-cat="landmark">Landmark</button>
-        <button class="pill" data-cat="crypto">Geheimdienst</button>
-        <button class="pill" data-cat="quantum">Quanten</button>
-      </div>
-    </div>
-    <div class="place-list" id="plist"></div>
-  </div>
-  <div id="map">
-    <div id="legend">
-      <div class="leg-h">Legende</div>
-      <div class="leg-row"><div class="ldot" style="background:#c2540f"></div>Museum</div>
-      <div class="leg-row"><div class="ldot" style="background:#2c4f8c"></div>Historisch</div>
-      <div class="leg-row"><div class="ldot" style="background:#1f7a5c"></div>Landmark</div>
-      <div class="leg-row"><div class="ldot" style="background:#6b3fa0"></div>Geheimdienst</div>
-      <div class="leg-row"><div class="ldot" style="background:#0f8a82"></div>Quantencomputing</div>
-    </div>
-    <div id="detail">
-      <div class="d-inner">
-        <div class="d-top">
-          <div class="d-eyebrow" id="deyebrow"></div>
-          <button class="d-x" id="dclose">✕</button>
+
+  <header>
+    <h1>📜 Orte der Informatik</h1>
+    <p>Meilensteine und Wendepunkte der digitalen Zeitgeschichte</p>
+  </header>
+  
+  <div class="container">
+    <p class="intro-text">
+      Willkommen in der digitalen Sammlung. Wählen Sie ein Thema, um mehr über die bahnbrechenden Technologien und die klugen Köpfe dahinter zu erfahren.
+    </p>
+
+    <nav class="menu-list">
+      
+      <a class="link-card" href="arpanet.html">
+        <div class="icon">🌐</div>
+        <div class="content">
+          <h2>Das ARPANET (1969)</h2>
+          <p>Das erste Datennetzwerk der Welt und die berühmteste Fehlermeldung der Geschichte.</p>
         </div>
-        <div class="d-name" id="dname"></div>
-        <div class="d-where" id="dwhere"></div>
-        <hr class="d-hr"/>
-        <div class="d-desc" id="ddesc"></div>
-        <div class="d-chips" id="dchips"></div>
-      </div>
-    </div>
+      </a>
+      
+      <a class="link-card" href="linux.html">
+        <div class="icon">🐧</div>
+        <div class="content">
+          <h2>Die Geburt von Linux (1991)</h2>
+          <p>Wie aus dem unscheinbaren Hobby-Projekt eines Studenten die Open-Source-Revolution erwuchs.</p>
+        </div>
+      </a>
+      
+    </nav>
   </div>
-</div>
 
-<script>
-const CAT={
-  museum:{color:'#c2540f',label:'Museum'},
-  historic:{color:'#2c4f8c',label:'Historisch'},
-  landmark:{color:'#1f7a5c',label:'Landmark'},
-  crypto:{color:'#6b3fa0',label:'Geheimdienst'},
-  quantum:{color:'#0f8a82',label:'Quantencomputing'}
-};
+  <footer>
+    <p>Projekt-Sammlung zur IT-Geschichte | Datenstand: 2026</p>
+  </footer>
 
-const PLACES=[
-  {
-    name:'Computermuseum Universität Stuttgart',
-    city:'Stuttgart-Vaihingen, DE',
-    lat:48.7454,lng:9.1064,
-    cat:'museum',
-    year:'gegr. 1997',
-    tags:['Computermuseum','Klemens Krause','LGP 30','Stuttgart'],
-    desc:'Das Museum erzählt die faszinierende 400-jährige Entwicklung der Computer von Wilhelm Schickards Rechenmaschine bis zu den Mikroprozessoren der 1970er Jahre.',
-    link:'https://www.f05.uni-stuttgart.de/informatik/fachbereich/computermuseum/'
-  },
-  {
-    name:'IBM Technology Campus Ehningen',
-    city:'Ehningen, DE',
-    lat:48.6547,lng:8.9419,
-    cat:'quantum',
-    year:'eröffnet 2024',
-    tags:['IBM','Technologie-Campus','Qubits','Ehningen'],
-    desc:'Quantencomputing: In Ehningen steht der erste kommerziell nutzbare Quantencomputer Europas, das IBM Quantum System One.',
-    link:'https://www.ibm.com/de-de/quantum'
-  },
-  {
-    name:'Heinz Nixdorf MuseumsForum',
-    city:'Paderborn, DE',
-    lat:51.7163,lng:8.7531,
-    cat:'museum',
-    year:'gegr. 1996',
-    tags:['Heinz Nixdorf','Computermuseum','Paderborn'],
-    desc:'Das Museum präsentiert in seiner Dauerausstellung 5.000 Jahre Geschichte der Informations- und Kommunikationstechnik. Ausstellung: Entstehung der Schrift, Rechnen und Rechenmaschinen, Historie der Telegrafie, Cray-2, ...',
-    link:'https://www.hnf.de'
-  },
-  {
-    name:'Computer History Museum',
-    city:'Mountain View, CA, USA',
-    lat:37.4143,lng:-122.0776,
-    cat:'museum',
-    year:'gegr. 1996',
-    tags:['Computergeschichte','Technologie','Museum','Babbage'],
-    desc:'Das Computer History Museum (CHM) ist ein Computermuseum in Mountain View, Kalifornien. Das Museum präsentiert Geschichten und Exponate aus dem Silicon Valley und dem Informationszeitalter und beleuchtet die Revolution der Computertechnik und ihre Auswirkungen auf die Gesellschaft.',
-    link:'https://computerhistory.org'
-  },
-  {
-    name:'WithSecure – Museum of Malware Art',
-    city:'Helsinki, Finnland',
-    lat:60.1595,lng:24.9174,
-    cat:'museum',
-    year:'eröffnet 2024',
-    tags:['MalwareMuseum','Helsinki','Cybersecurity','Hyppönen'],
-    desc:'Das Museum of Malware Art bei WithSecure zeigt Kunstwerke, die von bekannten Schadprogrammen und Cyberangriffen inspiriert sind. Die Ausstellung verbindet die Geschichte von Malware mit künstlerischen Darstellungen digitaler Bedrohungen.',
-    link:'https://www.withsecure.com/en/about-us/museum-of-malware-art/'
-  },
-  {
-    name:'Die Linux Story',
-    city:'Helsinki, Finnland',
-    lat:60.2055,lng:24.9605,
-    cat:'historic',
-    year:'Linux kernel 1991',
-    tags:['Linus Torvalds','Linux','Open Source','Git'],
-    desc:'Im Informatikgebäude der Universität Helsinki schrieb Linus Torvalds 1991 den ersten Linux-Kernel. Die Ankündigung auf comp.os.minix am 25. August 1991 änderte die Welt der Betriebssysteme für immer.',
-    link:'https://www.deutschlandfunkkultur.de/linux-feiert-20-geburtstag-100.html'
-  },
-  {
-    name:'CERN – Geburtsort des World Wide Web',
-    city:'Genf, Schweiz',
-    lat:46.2330,lng:6.0557,
-    cat:'historic',
-    year:'WWW erfunden 1989',
-    tags:['Tim Berners-Lee','WWW-Servern','Kernforschungszentrum'],
-    desc:'Der britische Informatiker und Physiker Tim Berners-Lee reichte im März 1989 am Europäischen Kernforschungszentrum CERN in Genf den Vorschlag für ein weltweites Hypertext-System ein.',
-    link:'https://info.cern.ch/hypertext/WWW/TheProject.html'
-  },
-  {
-    name:'Die Geburt des Computers',
-    city:'Berlin-Kreuzberg, DE',
-    lat:52.4853,lng:13.3314,
-    cat:'historic',
-    year:'Z3 - Mai 1941',
-    tags:['Konrad Zuse','Methfesselstraße','Erfindung'],
-    desc:'Die Z3 wurde am 12. Mai 1941 von Konrad Zuse in Berlin in Betrieb genommen und gilt als der erste funktionsfähige, programmierbare Computer der Welt. Sie entstand als Weiterentwicklung der früheren Modelle Z1 und Z2 und markierte einen Meilenstein in der Geschichte der Informatik.',
-    link:'https://de.wikipedia.org/wiki/Konrad_Zuse'
-  },
-  {
-    name:'Pionen: Ein Datenzentrum im Atombunker',
-    city:'Stockholm, Schweden',
-    lat:59.3163,lng:18.0773,
-    cat:'landmark',
-    year:'eröffnet 2008',
-    tags:['Rechenzentrum','Colocation','Bunker','Hosting'],
-    desc:'Pionen ist ein ikonisches, atomwaffensicheres Rechenzentrum, das tief unter den Vita-Bergen auf Södermalm in Stockholm liegt. Ursprünglich als Schutzbunker für den Zivilschutz gebaut, wurde es zu einer hochmodernen IT-Anlage umgebaut.',
-    link:'https://bahnhof.se/datacenter/pionen'
-  },
-  {
-    name:'MIT - Massachusetts Institute of Technology',
-    city:'Cambridge, USA',
-    lat:42.3600,lng:-71.0940,
-    cat:'landmark',
-    year:'gegr. 1861',
-    tags:['Naturwissenschaften','Forschung','IT-Geschichte','Hacker-Kultur'],
-    desc:'1959 wurde am MIT das AI Lab gegründet. Hier entstanden frühe KI-Systeme, Robotik-Projekte und Programme zum maschinellen Lernen.',
-    link:'https://www.mit.edu/'
-  },
-  {
-    name:'33 Thomas Street – TITANPOINTE',
-    city:'Tribeca, Manhattan, USA',
-    lat:40.7141,lng:-74.0072,
-    cat:'crypto',
-    year:'erbaut 1974',
-    tags:['NSA','AT&T','TITANPOINTE','Snowden','4ESS-Switches','Vermittlungsstelle'],
-    desc:'Fensterloser Wolkenkratzer in der Innenstadt von Manhattan. Er wird auch als wahrscheinlicher Standort der Massenüberwachung der National Security Agency (NSA) beschrieben.',
-    link:'https://www.youtube.com/watch?v=qqJSXoa5ZtQ'
-  },
-  {
-    name:'ARPANET Node #1 – Boelter Hall 3420',
-    city:'UCLA, Los Angeles, CA, USA',
-    lat:34.06933,lng:-118.44325,
-    cat:'historic',
-    year:'29. Oktober 1969',
-    tags:['ARPANET','erstes Internet-Paket','IMP No. 1','Leonard Kleinrock','„LO"'],
-    desc:'Raum 3420, Boelter Hall, 580 Portola Plaza: Hier stand IMP No. 1 – der erste Knoten des ARPANET. Am 29. Oktober 1969, 22:30 Uhr, schickte Programmierer Charley Kline das erste Paket Richtung Stanford. Das System crashte nach zwei Buchstaben. Die erste Internet-Nachricht lautete: „LO".',
-    link:'https://www.researchgate.net/figure/The-initial-four-node-ARPANET-1969_fig2_262316090'
-  }
-];
-
-let activeFilter='all', activeIdx=null, map, markers=[];
-
-map=L.map('map',{zoomControl:true}).setView([46,12],4);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-  attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  maxZoom:18
-}).addTo(map);
-
-function mkIcon(p){
-  const c=CAT[p.cat].color;
-  return L.divIcon({
-    className:'',
-    html:`<div style="width:26px;height:26px;border-radius:50%;background:${c};border:3px solid #fff;box-shadow:0 2px 8px rgba(20,30,50,.35);display:flex;align-items:center;justify-content:center;">
-      <div style="width:7px;height:7px;border-radius:50%;background:#fff;"></div>
-    </div>`,
-    iconSize:[26,26],iconAnchor:[13,13],popupAnchor:[0,-16]
-  });
-}
-
-PLACES.forEach((p,i)=>{
-  const m=L.marker([p.lat,p.lng],{icon:mkIcon(p)}).addTo(map);
-  m.bindPopup(`<b style="font-family:'Lora',serif;font-size:14px;font-weight:700;color:#1c2230">${p.name}</b><br><span style="font-size:12px;color:#8a93a3">${p.city}</span><br><a href="${p.link}" target="_blank" class="pop-link">🔗 Website</a>`);
-  m.on('click',()=>{activeIdx=i;showDetail(p);renderList()});
-  markers.push(m);
-});
-
-function showDetail(p){
-  const c=CAT[p.cat].color;
-  document.getElementById('deyebrow').style.color=c;
-  document.getElementById('deyebrow').textContent=CAT[p.cat].label+' · '+p.year;
-  document.getElementById('dname').textContent=p.name;
-  document.getElementById('dwhere').textContent=p.city;
-  document.getElementById('ddesc').textContent=p.desc;
-  document.getElementById('dchips').innerHTML=p.tags.map(t=>`<span class="d-chip">${t}</span>`).join('');
-  document.getElementById('detail').style.display='block';
-}
-
-function renderList(){
-  const list=document.getElementById('plist');
-  list.innerHTML='';
-  let n=0;
-  PLACES.forEach((p,i)=>{
-    if(activeFilter!=='all'&&p.cat!==activeFilter)return;
-    n++;
-    const d=document.createElement('div');
-    d.className='pitem'+(activeIdx===i?' on':'');
-    const c=CAT[p.cat].color;
-    d.innerHTML=`<div class="pidx">${String(n).padStart(2,'0')}</div>
-    <div>
-      <div class="pname">${p.name}</div>
-      <div class="pcity">${p.city}</div>
-      <span class="ptag" style="color:${c};background:${c}18">${CAT[p.cat].label}</span>
-    </div>`;
-    d.addEventListener('click',()=>{
-      activeIdx=i;
-      map.flyTo([p.lat,p.lng],12,{duration:1.3,easeLinearity:0.4});
-      setTimeout(()=>markers[i].openPopup(),900);
-      showDetail(p);
-      renderList();
-    });
-    list.appendChild(d);
-  });
-  document.getElementById('tally').textContent=`${n} Orte · ${new Set(PLACES.filter(p=>activeFilter==='all'||p.cat===activeFilter).map(p=>p.city.split(',').pop().trim())).size} Länder`;
-}
-
-document.querySelectorAll('.pill').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.pill').forEach(b=>b.classList.remove('on'));
-    btn.classList.add('on');
-    activeFilter=btn.dataset.cat;
-    activeIdx=null;
-    document.getElementById('detail').style.display='none';
-    PLACES.forEach((p,i)=>{
-      const show=activeFilter==='all'||p.cat===activeFilter;
-      if(show&&!map.hasLayer(markers[i]))markers[i].addTo(map);
-      if(!show&&map.hasLayer(markers[i]))map.removeLayer(markers[i]);
-    });
-    renderList();
-  });
-});
-
-document.getElementById('dclose').addEventListener('click',()=>{
-  document.getElementById('detail').style.display='none';
-  activeIdx=null;renderList();
-});
-
-renderList();
-</script>
 </body>
 </html>
